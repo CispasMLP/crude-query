@@ -12,7 +12,7 @@ const useCreate = () => {
         return JSON.stringify(res,null,2)
     };
 
-        const{isLoading: isPostingData, mutate: postData}=useMutation<any,Error>(
+        const{isLoading: isPostingData, mutate: postData,data}=useMutation<any,Error>(
         async()=>{
             return await DataServices.create({
                 title: postTitle,
@@ -37,9 +37,9 @@ const useCreate = () => {
             setPostResult(formatResponse(err))
           }
         }
-        const clearPostOutput =()=>{
-            setPostResult(null)
-        };
+        // const clearPostOutput =()=>{
+        //     setPostResult(null)
+        // };
   
   return {isPostingData,
     postData,
@@ -49,8 +49,9 @@ const useCreate = () => {
     postDescription,
     setPostDescription,
     postInfo,
-    clearPostOutput,
-    postResult
+    // clearPostOutput,
+    postResult,
+    data
   }
 }
 

@@ -4,8 +4,8 @@ import DataServices from '../services/Services';
 import Data from '../types/Data';
 
 const useData = () => {
- 
-const{isLoading:isLoadingData,refetch: getAllData, data}=useQuery<Data[],Error>(
+
+    const{isLoading:isLoadingData,refetch: getAllData, data}=useQuery<Data[],Error>(
     "[query-data]",
     async ()=>{
         return await DataServices.findAll();

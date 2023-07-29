@@ -1,47 +1,43 @@
 import useData from "../../hooks/useData"
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
-const Table = () => {
 
- const{data,isLoadingData,getAllInfo}=useData()
-
-   if (isLoadingData) {
-     return <div>Loading...</div>;
-   }
-
-if (data && data.length > 0) {
-
+const Table1=({info:any})=>{
+  const { data} = useData();
+  
   return (
-    <div className="overflow-x-auto">
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((info) => (
-            <tr
-             className="bg-base-200" key={info.id}>
-              <td>{info.title}</td>
-              <td>{info.description}</td>
-              <td>{info.published}</td>
-            </tr>
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell >TITLE</TableCell>
+            <TableCell >DESCRIPTION</TableCell>
+            <TableCell >ACTION</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data?.map((row) => (
+            <TableRow key={row.id}sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+              <TableCell >{row.title}</TableCell>
+              <TableCell >{row.description}</TableCell>
+              <TableCell >{row.published}</TableCell>
+       
+            </TableRow>
           ))}
-        </tbody>
-      </table>
-    </div>
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
-    }
-    
-    return (
-        <div>
-        <button className="btn btn-primary" onClick={getAllInfo}>
-            Fetch Data
-        </button>
-        </div>
-    );
 }
 
-export default Table
+export default Table1
+
+
+
+

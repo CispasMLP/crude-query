@@ -5,10 +5,11 @@ import useDataTitle from '../../hooks/useDataTitle';
 import { Input } from "@chakra-ui/react";
 import Table from '../table/Table';
 import Title from '../filter/InputTitle';
+import Table1 from '../table/Table';
 
 
 const Form = () => {
-  // const { getResult, clearGetOutput, getAllInfo} = useData();
+  const { getResult} = useData();
   // const { getId, setGetId, getInfoById } = useDataId();
   // const {getTitle, setGetTitle, getInfoByTitle } = useDataTitle();
 
@@ -34,21 +35,21 @@ const Form = () => {
     //           </button>
     //         </div>
 
-            // <input
-            //   type="text"
-            //   value={getTitle}
-            //   onChange={(e) => setGetTitle(e.target.value)}
-            //   className="form-control ml-2"
-            //   placeholder="Title"
-            // />
-            // <div className="input-group-append">
-            //   <button
-            //     className="btn btn-sm btn-primary"
-            //     onClick={getInfoByTitle}
-            //   >
-            //     Find By Title
-            //   </button>
-            // </div>
+    // <input
+    //   type="text"
+    //   value={getTitle}
+    //   onChange={(e) => setGetTitle(e.target.value)}
+    //   className="form-control ml-2"
+    //   placeholder="Title"
+    // />
+    // <div className="input-group-append">
+    //   <button
+    //     className="btn btn-sm btn-primary"
+    //     onClick={getInfoByTitle}
+    //   >
+    //     Find By Title
+    //   </button>
+    // </div>
 
     //         <button
     //           className="btn btn-sm btn-warning ml-2"
@@ -69,8 +70,8 @@ const Form = () => {
 
     //mui
     <div>
-      <Title/>
-      <Table/>
+      {/* <Title /> */}
+      <Table1 info={getResult} />
     </div>
   );
   
