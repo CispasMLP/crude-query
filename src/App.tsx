@@ -11,9 +11,9 @@ function App() {
   return (
     <>
     <Form/> 
-    <Create/>
+    {/* <Create/>
     <Delete/>
-    <Update/>
+    <Update/> */}
     </>
   )
 }

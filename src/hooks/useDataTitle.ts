@@ -16,7 +16,7 @@ const { isLoading: isSearchingData,refetch: findDataByTitle} = useQuery<Data[], 
         return await DataServices.findByTitle(getTitle);
     },
     {
-        enabled: false,
+        enabled: true,
         retry: 1,
         onSuccess: (res) => {
         setGetResult(formatResponse(res));
